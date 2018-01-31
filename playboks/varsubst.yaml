@@ -1,0 +1,11 @@
+--- # Testing how variable work in the vars section of a playbook
+- hosts: '{{ myhost }}'
+  remote_user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: '{{ gather }}'
+  tasks:
+  - name: Install the indicated software 
+    yum: 
+      name: '{{ pkg }}'
+      state: latest
